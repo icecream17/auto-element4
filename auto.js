@@ -44,7 +44,8 @@ let logging = setInterval(() => {
       elements.length > auto_element4.internals.last_element_count ? "color:gray;" : "color:green;",
       elements.length - auto_element4.internals.last_element_count,
       elements.length > auto_element4.internals.last_element_count ? "color:black;" : "color: green;"
-   )
+   );
+   auto_element4.internals.last_element_count = elements.length;
 }, 10000)
 
 
