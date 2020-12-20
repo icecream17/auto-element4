@@ -41,9 +41,9 @@ let logging = setInterval(() => {
    console.log(
       'Elements: %i\n%c+%i%c elements', 
       elements.length, 
-      elements.length > auto_element4.internals.last_element_count ? "color:gray;" : "color:green;",
+      elements.length > auto_element4.internals.last_element_count ? "color:green;" : "color:gray;",
       elements.length - auto_element4.internals.last_element_count,
-      elements.length > auto_element4.internals.last_element_count ? "color:black;" : "color: green;"
+      elements.length > auto_element4.internals.last_element_count ? "color:green;" : "color:black;"
    );
    auto_element4.internals.last_element_count = elements.length;
 }, 10000)
