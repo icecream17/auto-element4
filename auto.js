@@ -5,7 +5,13 @@
 // So imagine what could happen if someone else could pretend to be you. Access to passwords....
 
 // So here's how it works:
-// Click a random element, unless that combination has already been tried.
+// 1. Click a random element
+// That's it actually.
+
+// Let's try it:
+// Clicks on "Air"
+// Clicks on "Water"
+// BAM! New element.
 
 globalThis.auto_element4 = {
    ms: 100, // Delay, in milliseconds, between each click.
@@ -16,11 +22,13 @@ globalThis.auto_element4 = {
       // click_combos_so_far: {}
    },
    start(closeWindow=true) {
+      auto_element4.stop(); // Just in case
       auto_element4.internals.interval_id = setInterval(function (internals) {
          let elements = document.querySelectorAll("#element-game-root div.elem")
          let chosen_element = internals.last_click = elements[Math.floor(Math.random() * elements.length)]
          chosen_element.click();
-         document.querySelector(".suggest-close").dispatchEvent?.(new Event("click"));
+         
+         if (closeWindow) document.querySelector(".suggest-close").dispatchEvent?.(new Event("click"));
       }, time_in_ms, auto_element4.internals)
    },
    stop() {
@@ -42,7 +50,7 @@ let logging = setInterval(() => {
 // Do you want to close the suggestion box that pops up when a combination is wrong?
 // Delete the "//" at the start depending on your answer
 
-// auto_element4.start(); // Yes
+// auto_element4.start(true); // Yes
 // auto_element4.start(false); // No
 
 // Then...
