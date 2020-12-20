@@ -14,14 +14,14 @@
 // BAM! New element.
 
 globalThis.auto_element4 = {
-   ms: 100, // Delay, in milliseconds, between each click.
+   ms: 100, // Delay, in milliseconds, between each click. Change this if you want.
    internals: {
       interval_id: null,
       last_click: null,
       last_element_count: 4,
       // click_combos_so_far: {}
    },
-   start(closeWindow=true) {
+   start(closeWindow=true, ms=auto_element4.ms) {
       auto_element4.stop(); // Just in case
       auto_element4.internals.interval_id = setInterval(function (internals) {
          let elements = document.querySelectorAll("#element-game-root div.elem")
@@ -47,11 +47,11 @@ let logging = setInterval(() => {
    )
 }, 10000)
 
-// Do you want to close the suggestion box that pops up when a combination is wrong?
-// Delete the "//" at the start depending on your answer
 
-// auto_element4.start(true); // Yes
-// auto_element4.start(false); // No
+auto_element4.start(); // Default: Closes suggestion box, ms=100
+// auto_element4.start(false); // Doesn't close suggestion box
+// auto_element4.start(false, 200); // Doesn't close suggestion box and also takes 200 ms instead of 100
+// auto_element4.start(true, 50); // Takes only 50ms instead of 100ms.
 
 // Then...
 // 1. copy all this code
