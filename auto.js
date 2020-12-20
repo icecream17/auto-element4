@@ -29,7 +29,7 @@ globalThis.auto_element4 = {
          chosen_element.click();
          
          if (closeWindow) document.querySelector(".suggest-close").dispatchEvent?.(new Event("click"));
-      }, time_in_ms, auto_element4.internals)
+      }, ms, auto_element4.internals)
    },
    stop() {
       clearInterval(auto_element4.internals.interval_id);
